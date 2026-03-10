@@ -1,8 +1,8 @@
 from langchain_huggingface import ChatHuggingFace, HuggingFaceEndpoint
 from langchain_core.messages import SystemMessage,HumanMessage,AIMessage
 from langchain_core.prompts import ChatPromptTemplate
-from dotenv import load_dotenv
-load_dotenv()
+import os
+os.environ["HUGGINGFACEHUB_API_KEY"]="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"
 llm=HuggingFaceEndpoint(
     repo_id="Qwen/Qwen2.5-Coder-7B-Instruct",
     task="text-generation"
@@ -24,6 +24,7 @@ result=model.invoke(prompt)
 button=st.button("Result")
 if button or prompt:
     st.write(result.content)
+
 
 
 
