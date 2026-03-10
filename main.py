@@ -4,7 +4,7 @@ from langchain_core.prompts import ChatPromptTemplate
 import os
 os.environ["HUGGINGFACEHUB_API_TOKEN"]="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"
 llm=HuggingFaceEndpoint(
-    repo_id="Qwen/Qwen3-Coder-Next",
+    repo_id="Qwen/Qwen2.5-Coder-32B-Instruct",
     task="text-generation"
 )
 chatTemplate = ChatPromptTemplate.from_messages([
@@ -24,3 +24,4 @@ result=model.invoke(prompt)
 button=st.button("Result")
 if button or prompt:
     st.write(result.content)
+
